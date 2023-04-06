@@ -51,10 +51,10 @@ public class StatValues{
             String l1 = (unit.icon == null ? "" : unit.icon + " ") + fixValue(value), l2 = (unit.space ? " " : "") + unit.localized();
 
             if(merge){
-                table.add(l1 + l2);
+                table.add(l1 + l2).left();
             }else{
-                table.add(l1);
-                table.add(l2);
+                table.add(l1).left();
+                table.add(l2).left();
             }
         };
     }
@@ -296,7 +296,7 @@ public class StatValues{
 
                 table.table(Styles.grayPanel, w -> {
                     w.left().top().defaults().padRight(3).left();
-                    if(region != null && region.found()) w.image(region).size(60).scaling(Scaling.bounded).left().top();
+                    if(region != null && region.found() && weapon.showStatSprite) w.image(region).size(60).scaling(Scaling.bounded).left().top();
                     w.row();
 
                     weapon.addStats(unit, w);
